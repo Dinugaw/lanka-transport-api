@@ -118,7 +118,7 @@ exports.list = (req, res) => {
         .populate('categories', '_id name slug')
         .populate('tags', '_id name slug')
         .populate('postedBy', '_id name username')
-        .select('_id title slug excerpt categories tags postedBy createdAt updatedAt')
+        .select('_id title slug categories tags postedBy createdAt updatedAt route vehicleType telephone')
         .exec((err, data) => {
             if (err) {
                 return res.json({
@@ -144,7 +144,7 @@ exports.listAllBlogsCategoriesTags = (req, res) => {
         .sort({ createdAt: -1 })
         .skip(skip)
         .limit(limit)
-        .select('_id title slug excerpt categories tags postedBy createdAt updatedAt')
+        .select('_id title slug excerpt categories tags postedBy createdAt updatedAt route vehicleType telephone')
         .exec((err, data) => {
             if (err) {
                 return res.json({
