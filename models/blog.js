@@ -50,7 +50,7 @@ const blogSchema = new mongoose.Schema(
         eveningEndTime: {
             type:String
         },
-        route: [{address:String ,city: String, lat: String, long: String}],
+        route: [{address:String ,city: String, lat: String, lon: String}],
         photo: {
             data: Buffer,
             contentType: String

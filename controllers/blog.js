@@ -20,7 +20,7 @@ exports.create = (req, res) => {
             });
         }
         
-        const { title, categories, tags, routes, morningStartTime, morningEndTime, eveningStartTime, eveningEndTime, vehicleType, isAc } = fields;
+        const { title, categories, tags, routes, morningStartTime, morningEndTime, eveningStartTime, eveningEndTime, telephone ,vehicleType, vehicleNumber, isAc } = fields;
         let jsonRoute = JSON.parse(routes);
         console.log(jsonRoute);
         if (!title || !title.length) {
@@ -57,6 +57,8 @@ exports.create = (req, res) => {
         blog.eveningStartTime = eveningStartTime;
         blog.eveningEndTime = eveningEndTime;
         blog.route = jsonRoute;
+        blog.telephone = telephone;
+        blog.vehicleNumber = vehicleNumber;
         // blog.excerpt = smartTrim(body, 320, ' ', ' ...');
         blog.slug = slugify(title).toLowerCase();
         blog.mtitle = `${title} | ${process.env.APP_NAME}`;
